@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="jigeum" default="build" basedir=".">
+
+    <!-- 형태 -->
+    <path id="classpath">
+        <fileset dir="jar">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+
+    <!-- 서버 클린 -->
+    <target name="clean">
+        <delete dir="build"/>
+        <mkdir dir="build"/>
+    </target>
+
+    <!-- 프로젝트 컴파일 -->
+    <target name="compile" depends="clean">
+        <javac srcdir="src"
+               destdir="build"
+               source="17"
+               target="17"
+               debug="true"
+               encoding="utf-8"
+               failonerror="true"
+               includeantruntime="false">
+            <classpath refid="classpath"/>
+        </javac>
+        <copy todir="build">
+            <fileset dir="src">
+                <include name="**/*.properties"/>
+                <include name="**/*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- 프로젝트 빌드 -->
+    <target name="build" depends="compile">
+        <jar destfile="dll/jigeum-server.jar" basedir="build">
+            <manifest>
+                <attribute name="Main-Class" value="co.kr.jigeum.server.JigeumMain"/>
+            </manifest>
+        </jar>
+        <echo>빌드 완료: dll/jigeum-server.jar</echo>
+    </target>
+
+    <!-- 서버 실행 -->
+    <target name="run" depends="build">
+        <java classname="co.kr.jigeum.server.JigeumMain" fork="true">
+            <classpath>
+                <pathelement location="dll/jigeum-server.jar"/>
+                <fileset dir="jar"><include name="*.jar"/></fileset>
+            </classpath>
+            <jvmarg value="-Xms256m"/>
+            <jvmarg value="-Xmx512m"/>
+            <jvmarg value="-Dconfig=${basedir}/bin/jigeum.properties"/>
+            <jvmarg value="-Dlog4j.configuration=file:${basedir}/bin/log4j.properties"/>
+        </java>
+    </target>
+
+
+</project>

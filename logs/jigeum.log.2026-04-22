@@ -1,0 +1,1496 @@
+[2026-04-22 13:44:42] [INFO] [JigeumMain] =============================================
+[2026-04-22 13:44:42] [INFO] [JigeumMain]   지금 (JIGEUM) 서버 시작
+[2026-04-22 13:44:42] [INFO] [JigeumMain] =============================================
+[2026-04-22 13:44:42] [INFO] [JigeumMain] [1/3] 설정 로딩...
+[2026-04-22 13:44:42] [INFO] [Config] 설정 로딩 완료: C:/workspace/jigeum/bin/jigeum.properties
+[2026-04-22 13:44:42] [INFO] [JigeumMain] [1/3] 설정 로딩 완료
+[2026-04-22 13:44:42] [INFO] [JigeumMain] [2/3] 스케줄러 시작...
+[2026-04-22 13:44:42] [INFO] [StockScheduler] 시세 수집 스케줄러 시작 - 5초 간격
+[2026-04-22 13:44:42] [INFO] [JigeumMain] [2/3] 스케줄러 시작 완료
+[2026-04-22 13:44:42] [INFO] [JigeumMain] [3/3] Netty 서버 시작...
+[2026-04-22 13:44:42] [INFO] [ThemeAnalyzer] Groq 테마 분류 요청 시작
+[2026-04-22 13:44:42] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.1-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"오늘 한국 주식시장과 미국 주식시장에서 가장 주목받고 있는 투자 테마 5개를 선정해줘.\n최근 뉴스, 정책, 글로벌 이슈를 반영해서 현재 시장에서 실제로 자금이 몰리는 섹터 기준으로.\n\n반드시 아래 형식으로만 답해줘. 설명 없이 쉼표로 구분된 5개 단어만:\nAI반도체,방산,2차전지,바이오,로봇"}]}
+[2026-04-22 13:44:42] [INFO] [NettyServer] =============================================
+[2026-04-22 13:44:42] [INFO] [NettyServer]   지금 서버 구동 완료 → http://localhost:8080
+[2026-04-22 13:44:42] [INFO] [NettyServer] =============================================
+[2026-04-22 13:44:42] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=hU9L2Ozxt.ICP_2iVop8isMz8Jmiox7gsi6oN5rxBFM-1776833086.2982929-1.0.1.1-WoAVfkrtO1133vhaxbXES_voSv720kcOIeu26SLP12Jp.Rlk_WC4Q7Md2.xM0pazwdTrMIAsJUn_Y.lnDERyc0UYaHFHBNl9W77yBWIDPJm5U2J5tS9CPRsb5FJ0ffSm; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:14:46 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:14:46 GMT
+[2026-04-22 13:44:42] [ERROR] [GroqClient] Groq API error: status=400, body={"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+[2026-04-22 13:44:42] [WARN] [ThemeAnalyzer] 테마 파싱 실패, 기본값 사용. Groq 응답: AI 분석 실패 (HTTP 400)
+[2026-04-22 13:44:42] [INFO] [ThemeAnalyzer] 테마 업데이트 완료: [AI반도체, 방산, 2차전지, 바이오, 로봇]
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6383.59 | 등락: -4.88 (-0.08%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.35 | 등락: -4.50 (-0.38%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:44:43] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:44:43] [DEBUG] [StockDataStore] 캐시 저장 완료: 4개 종목
+[2026-04-22 13:44:43] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 213500.00 | 등락: -500.00 (-0.23%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:44:43] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 451500.00 | 등락: 4500.00 (1.01%)
+[2026-04-22 13:44:43] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:44:43] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:44:47] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:44:47] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6381.21 | 등락: -7.26 (-0.11%)
+[2026-04-22 13:44:47] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.35 | 등락: -4.50 (-0.38%)
+[2026-04-22 13:44:47] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:44:47] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:44:47] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:44:47] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:44:47] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:44:48] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 451500.00 | 등락: 4500.00 (1.01%)
+[2026-04-22 13:44:48] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:44:48] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:44:52] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:44:52] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6381.21 | 등락: -7.26 (-0.11%)
+[2026-04-22 13:44:52] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.47 | 등락: -4.38 (-0.37%)
+[2026-04-22 13:44:52] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:44:52] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:44:52] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:44:52] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:44:52] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155550.00 | 등락: -4850.00 (-3.02%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:44:53] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:44:53] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:44:53] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:44:56] [INFO] [RouterHandler] [GET] /api/themes
+[2026-04-22 13:44:56] [INFO] [RouterHandler] [GET] /api/themes
+[2026-04-22 13:44:56] [ERROR] [RouterHandler] RouterHandler 오류: refCnt: 0, decrement: 1
+[2026-04-22 13:44:56] [INFO] [RouterHandler] [GET] /favicon.ico
+[2026-04-22 13:44:56] [INFO] [RouterHandler] [GET] /favicon.ico
+[2026-04-22 13:44:56] [ERROR] [RouterHandler] RouterHandler 오류: refCnt: 0, decrement: 1
+[2026-04-22 13:44:57] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:44:57] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6381.21 | 등락: -7.26 (-0.11%)
+[2026-04-22 13:44:57] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.47 | 등락: -4.38 (-0.37%)
+[2026-04-22 13:44:57] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:44:57] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:44:57] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:44:57] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:44:57] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:44:58] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 451500.00 | 등락: 4500.00 (1.01%)
+[2026-04-22 13:44:58] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:44:58] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:02] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:02] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6382.41 | 등락: -6.06 (-0.09%)
+[2026-04-22 13:45:02] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.29 | 등락: -4.56 (-0.39%)
+[2026-04-22 13:45:02] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:02] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:02] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:02] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:02] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 213500.00 | 등락: -500.00 (-0.23%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155550.00 | 등락: -4850.00 (-3.02%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:45:03] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:45:03] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:03] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:07] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:07] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6381.30 | 등락: -7.17 (-0.11%)
+[2026-04-22 13:45:07] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.29 | 등락: -4.56 (-0.39%)
+[2026-04-22 13:45:07] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:07] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:07] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:07] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:07] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 213500.00 | 등락: -500.00 (-0.23%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:45:08] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:45:08] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:08] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:12] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:12] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6381.30 | 등락: -7.17 (-0.11%)
+[2026-04-22 13:45:12] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.37 | 등락: -4.48 (-0.38%)
+[2026-04-22 13:45:12] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:12] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:12] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:12] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:12] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:45:13] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 451500.00 | 등락: 4500.00 (1.01%)
+[2026-04-22 13:45:13] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:13] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:17] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:17] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6380.96 | 등락: -7.51 (-0.12%)
+[2026-04-22 13:45:17] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.37 | 등락: -4.48 (-0.38%)
+[2026-04-22 13:45:17] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:17] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:17] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:17] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:17] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:45:18] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:45:18] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:18] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:22] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:22] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6380.96 | 등락: -7.51 (-0.12%)
+[2026-04-22 13:45:22] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.48 | 등락: -4.37 (-0.37%)
+[2026-04-22 13:45:22] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:22] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:22] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:22] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:22] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:45:23] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:45:23] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:27] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:27] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6380.96 | 등락: -7.51 (-0.12%)
+[2026-04-22 13:45:27] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.37 | 등락: -4.48 (-0.38%)
+[2026-04-22 13:45:27] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:27] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:27] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:27] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:27] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:45:28] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 451500.00 | 등락: 4500.00 (1.01%)
+[2026-04-22 13:45:28] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:28] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:32] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:32] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6382.64 | 등락: -5.83 (-0.09%)
+[2026-04-22 13:45:32] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.47 | 등락: -4.38 (-0.37%)
+[2026-04-22 13:45:32] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:32] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:32] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:32] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:32] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:45:33] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 451500.00 | 등락: 4500.00 (1.01%)
+[2026-04-22 13:45:33] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:33] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:37] [INFO] [RouterHandler] [GET] /api/insight/economic
+[2026-04-22 13:45:37] [INFO] [InsightGenerator] 경제 국면 분석 요청
+[2026-04-22 13:45:37] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.1-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"현재 경제 지표를 분석해서 투자 관점의 경제 국면을 판단해주세요.\n\n미국 기준금리: 4.25%\n원달러 환율: 1380원\nVIX 공포지수: 18.50\nWTI 유가: $72.00\n금 가격: $3300.00\n\n현재 어떤 경제 국면인지 (금리인상기/금리인하기/경기침체/경기회복 등), 어떤 섹터가 유리한지 3~4문장으로 설명해주세요. 한국어로 답변."}]}
+[2026-04-22 13:45:37] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=3V4.Iq86bmMxyNqAuIDBTtchaGXS2fdoPS0dJkdjvOc-1776833140.607424-1.0.1.1-xAGq2cyoOXpjypm.O2ulA_vCjwoFTYOgeMaCsayetutVZ53S34Q4pf8NmUCPETYAoWkzl8bK88zyE3IdUvWFrZWapkhWFwegao3I.7nIJbB4mM38p82Woc0IoS4AkxUk; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:15:40 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:15:40 GMT
+[2026-04-22 13:45:37] [ERROR] [GroqClient] Groq API error: status=400, body={"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+[2026-04-22 13:45:37] [INFO] [RouterHandler] [GET] /api/insight/economic
+[2026-04-22 13:45:37] [INFO] [InsightGenerator] 경제 국면 분석 요청
+[2026-04-22 13:45:37] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.1-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"현재 경제 지표를 분석해서 투자 관점의 경제 국면을 판단해주세요.\n\n미국 기준금리: 4.25%\n원달러 환율: 1380원\nVIX 공포지수: 18.50\nWTI 유가: $72.00\n금 가격: $3300.00\n\n현재 어떤 경제 국면인지 (금리인상기/금리인하기/경기침체/경기회복 등), 어떤 섹터가 유리한지 3~4문장으로 설명해주세요. 한국어로 답변."}]}
+[2026-04-22 13:45:37] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=CdbIgilOMaUIH3nHfUGKN6Jb2ZDiorupG_MOnRQ4zpw-1776833140.7818382-1.0.1.1-Zh0E_3ekfv8Du4R6DfsRDgVAYOVjOvAhrelXyqMwJZLADPDAwWhxVTtvamrTN8sx.MZHHT9Z2QvbTWYg.0gxT46FGC6jjE.N9VXwlXuh9hb5KlXTxtjwN.5Y0lyUlUWj; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:15:40 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:15:40 GMT
+[2026-04-22 13:45:37] [ERROR] [GroqClient] Groq API error: status=400, body={"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+[2026-04-22 13:45:37] [ERROR] [RouterHandler] RouterHandler 오류: refCnt: 0, decrement: 1
+[2026-04-22 13:45:37] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:37] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6382.64 | 등락: -5.83 (-0.09%)
+[2026-04-22 13:45:37] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.47 | 등락: -4.38 (-0.37%)
+[2026-04-22 13:45:37] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:37] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:37] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:37] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:37] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 665000.00 | 등락: 20000.00 (3.10%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:45:38] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:45:38] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:38] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:42] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:42] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6382.64 | 등락: -5.83 (-0.09%)
+[2026-04-22 13:45:42] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.55 | 등락: -4.30 (-0.37%)
+[2026-04-22 13:45:42] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:42] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:42] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:42] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:42] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:45:43] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 453000.00 | 등락: 6000.00 (1.34%)
+[2026-04-22 13:45:43] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:43] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:47] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:47] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6380.91 | 등락: -7.56 (-0.12%)
+[2026-04-22 13:45:47] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.55 | 등락: -4.30 (-0.37%)
+[2026-04-22 13:45:47] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:47] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:47] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:47] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:47] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215500.00 | 등락: -8500.00 (-0.69%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 98000.00 | 등락: -1800.00 (-1.80%)
+[2026-04-22 13:45:48] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:45:48] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:48] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:52] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:52] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.32 | 등락: -3.15 (-0.05%)
+[2026-04-22 13:45:52] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.45 | 등락: -4.40 (-0.37%)
+[2026-04-22 13:45:52] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:52] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:52] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:52] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:52] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:45:53] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:45:53] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:53] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:56] [INFO] [RouterHandler] [GET] /api/insight/term?term=PER&value=8&avg=15
+[2026-04-22 13:45:56] [INFO] [InsightGenerator] 용어 해석 요청: PER = 8.0
+[2026-04-22 13:45:56] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.1-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"주식 용어를 주식을 전혀 모르는 사람도 이해할 수 있게 설명해주세요.\n\n용어: PER\n현재 값: 8.00\n업종 평균: 15\n\n이 수치가 무엇을 의미하는지, 현재 값이 좋은 건지 나쁜 건지 일상적인 비유를 들어 2~3문장으로 설명해주세요. 한국어로 답변."}]}
+[2026-04-22 13:45:56] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=6kQKYe7l3UJrbf3HY1VmPCH7zbOXF49YXdtxFYeiK4s-1776833159.6795697-1.0.1.1-sP0T2fppGJdLUgMCbHcaCPEx3WiTQhSZ7tOcHGShm9qytzlJ7tbAkA.Y9ANQmFRKKSox786aXvh6yCwlPICpj_S5Rv3IBA2iPasnp8aeVXXO6TsJdktoBkB0cGDkzdph; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:15:59 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:15:59 GMT
+[2026-04-22 13:45:56] [ERROR] [GroqClient] Groq API error: status=400, body={"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+[2026-04-22 13:45:56] [INFO] [RouterHandler] [GET] /api/insight/term?term=PER&value=8&avg=15
+[2026-04-22 13:45:56] [INFO] [InsightGenerator] 용어 해석 요청: PER = 8.0
+[2026-04-22 13:45:56] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.1-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"주식 용어를 주식을 전혀 모르는 사람도 이해할 수 있게 설명해주세요.\n\n용어: PER\n현재 값: 8.00\n업종 평균: 15\n\n이 수치가 무엇을 의미하는지, 현재 값이 좋은 건지 나쁜 건지 일상적인 비유를 들어 2~3문장으로 설명해주세요. 한국어로 답변."}]}
+[2026-04-22 13:45:56] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=DlplYmGfhiZmGrJV90rj0.etzgKv3h9WLc0yqYXTRlI-1776833159.8407993-1.0.1.1-2k1kCSgW.4li6ZF_DUR2hx69mG9WqMq7sWe8q6xOBh3dOTTTjZ7W62ttLAEc.1NG_87q_5A60nLykIJe_jqdek82m2MeluWxS3qv1r8EAAEtnFt8Jm2tjdRzw_it2WFJ; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:15:59 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:15:59 GMT
+[2026-04-22 13:45:56] [ERROR] [GroqClient] Groq API error: status=400, body={"error":{"message":"The model `llama-3.1-70b-versatile` has been decommissioned and is no longer supported. Please refer to https://console.groq.com/docs/deprecations for a recommendation on which model to use instead.","type":"invalid_request_error","code":"model_decommissioned"}}
+
+[2026-04-22 13:45:56] [ERROR] [RouterHandler] RouterHandler 오류: refCnt: 0, decrement: 1
+[2026-04-22 13:45:57] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:45:57] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.13 | 등락: -3.34 (-0.05%)
+[2026-04-22 13:45:57] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.45 | 등락: -4.40 (-0.37%)
+[2026-04-22 13:45:57] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:45:57] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:45:57] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:45:57] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:45:57] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:45:58] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:45:58] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:45:58] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:02] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:02] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.13 | 등락: -3.34 (-0.05%)
+[2026-04-22 13:46:02] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.45 | 등락: -4.40 (-0.37%)
+[2026-04-22 13:46:02] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:02] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:02] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:02] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:02] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:46:03] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452250.00 | 등락: 5250.00 (1.17%)
+[2026-04-22 13:46:03] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:03] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:07] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:07] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.73 | 등락: -3.74 (-0.06%)
+[2026-04-22 13:46:07] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.48 | 등락: -4.37 (-0.37%)
+[2026-04-22 13:46:07] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:07] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:07] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:07] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:07] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 98000.00 | 등락: -1800.00 (-1.80%)
+[2026-04-22 13:46:08] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452250.00 | 등락: 5250.00 (1.17%)
+[2026-04-22 13:46:08] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:08] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:12] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:12] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.73 | 등락: -3.74 (-0.06%)
+[2026-04-22 13:46:12] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.54 | 등락: -4.31 (-0.37%)
+[2026-04-22 13:46:12] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:12] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:12] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:12] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:12] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 98000.00 | 등락: -1800.00 (-1.80%)
+[2026-04-22 13:46:13] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452250.00 | 등락: 5250.00 (1.17%)
+[2026-04-22 13:46:13] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:13] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:17] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:17] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.73 | 등락: -3.74 (-0.06%)
+[2026-04-22 13:46:17] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.54 | 등락: -4.31 (-0.37%)
+[2026-04-22 13:46:17] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:17] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:17] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:17] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:17] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 98000.00 | 등락: -1800.00 (-1.80%)
+[2026-04-22 13:46:18] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:46:18] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:18] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:22] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.12 | 등락: -4.35 (-0.07%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.46 | 등락: -4.39 (-0.37%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:23] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:23] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:46:23] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:46:23] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:27] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:27] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.39 | 등락: -4.08 (-0.06%)
+[2026-04-22 13:46:27] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.46 | 등락: -4.39 (-0.37%)
+[2026-04-22 13:46:27] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:27] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:27] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:27] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:27] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:46:28] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:46:28] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:28] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:32] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:32] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.39 | 등락: -4.08 (-0.06%)
+[2026-04-22 13:46:32] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.53 | 등락: -4.32 (-0.37%)
+[2026-04-22 13:46:32] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:32] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:32] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:32] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:32] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:46:33] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452000.00 | 등락: 5000.00 (1.12%)
+[2026-04-22 13:46:33] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:33] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:37] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:37] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.39 | 등락: -4.08 (-0.06%)
+[2026-04-22 13:46:37] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.53 | 등락: -4.32 (-0.37%)
+[2026-04-22 13:46:37] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:37] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:37] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:37] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:37] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214250.00 | 등락: 250.00 (0.12%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:46:38] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:46:38] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:38] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:42] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:42] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.39 | 등락: -4.08 (-0.06%)
+[2026-04-22 13:46:42] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.52 | 등락: -4.33 (-0.37%)
+[2026-04-22 13:46:42] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:42] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:42] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:42] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:42] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:46:43] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:46:43] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:43] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:47] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:47] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6382.91 | 등락: -5.56 (-0.09%)
+[2026-04-22 13:46:47] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.52 | 등락: -4.33 (-0.37%)
+[2026-04-22 13:46:47] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:47] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:47] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:47] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:47] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:46:48] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:46:48] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:48] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:52] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:52] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6382.91 | 등락: -5.56 (-0.09%)
+[2026-04-22 13:46:52] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.61 | 등락: -4.24 (-0.36%)
+[2026-04-22 13:46:52] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:52] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:52] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:52] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:52] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:46:53] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 453000.00 | 등락: 6000.00 (1.34%)
+[2026-04-22 13:46:53] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:53] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:57] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:46:57] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.34 | 등락: -4.13 (-0.06%)
+[2026-04-22 13:46:57] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.61 | 등락: -4.24 (-0.36%)
+[2026-04-22 13:46:57] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:46:57] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:46:57] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:46:57] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:46:57] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48200.00 | 등락: -750.00 (-1.53%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300500.00 | 등락: -3500.00 (-1.15%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:46:58] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 453000.00 | 등락: 6000.00 (1.34%)
+[2026-04-22 13:46:58] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:46:58] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:02] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:02] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.34 | 등락: -4.13 (-0.06%)
+[2026-04-22 13:47:02] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.74 | 등락: -4.11 (-0.35%)
+[2026-04-22 13:47:02] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:02] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:02] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:02] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:02] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:47:03] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:47:03] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:03] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:07] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:07] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.86 | 등락: -3.61 (-0.06%)
+[2026-04-22 13:47:07] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.74 | 등락: -4.11 (-0.35%)
+[2026-04-22 13:47:07] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:07] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:07] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:07] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:07] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:08] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:47:08] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:08] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:12] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:12] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.86 | 등락: -3.61 (-0.06%)
+[2026-04-22 13:47:12] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.63 | 등락: -4.22 (-0.36%)
+[2026-04-22 13:47:12] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:12] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:12] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:12] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:12] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:13] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:47:13] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:13] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:17] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:17] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.86 | 등락: -3.61 (-0.06%)
+[2026-04-22 13:47:17] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.74 | 등락: -4.11 (-0.35%)
+[2026-04-22 13:47:17] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:17] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:17] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:17] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:17] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:18] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 452500.00 | 등락: 5500.00 (1.23%)
+[2026-04-22 13:47:18] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:18] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:22] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:22] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.98 | 등락: -2.49 (-0.04%)
+[2026-04-22 13:47:22] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.63 | 등락: -4.22 (-0.36%)
+[2026-04-22 13:47:22] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:22] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:22] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:22] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:22] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:23] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 453000.00 | 등락: 6000.00 (1.34%)
+[2026-04-22 13:47:23] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:27] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:27] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.76 | 등락: -2.71 (-0.04%)
+[2026-04-22 13:47:27] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.89 | 등락: -3.96 (-0.34%)
+[2026-04-22 13:47:27] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:27] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:27] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:27] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:27] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215500.00 | 등락: -8500.00 (-0.69%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:28] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 453000.00 | 등락: 6000.00 (1.34%)
+[2026-04-22 13:47:28] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:28] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:32] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:32] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.76 | 등락: -2.71 (-0.04%)
+[2026-04-22 13:47:32] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.89 | 등락: -3.96 (-0.34%)
+[2026-04-22 13:47:32] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:32] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:32] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:32] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:32] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:33] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 453000.00 | 등락: 6000.00 (1.34%)
+[2026-04-22 13:47:33] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:33] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:37] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:37] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.76 | 등락: -2.71 (-0.04%)
+[2026-04-22 13:47:37] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.81 | 등락: -4.04 (-0.34%)
+[2026-04-22 13:47:37] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:37] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:37] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:37] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:37] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:38] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:47:38] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:38] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:42] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:42] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.76 | 등락: -2.71 (-0.04%)
+[2026-04-22 13:47:42] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.99 | 등락: -3.86 (-0.33%)
+[2026-04-22 13:47:42] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:42] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:42] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:42] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:42] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:43] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 453750.00 | 등락: 6750.00 (1.51%)
+[2026-04-22 13:47:43] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:43] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:47] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:47] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.59 | 등락: -1.88 (-0.03%)
+[2026-04-22 13:47:47] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.99 | 등락: -3.86 (-0.33%)
+[2026-04-22 13:47:47] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:47] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:47] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:47] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:47] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:48] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:47:48] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:48] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:52] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:52] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.83 | 등락: -2.64 (-0.04%)
+[2026-04-22 13:47:52] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.74 | 등락: -4.11 (-0.35%)
+[2026-04-22 13:47:52] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:52] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:52] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:52] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:52] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1217000.00 | 등락: -7000.00 (-0.57%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:47:53] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:47:53] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:53] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:57] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:47:57] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.46 | 등락: -2.01 (-0.03%)
+[2026-04-22 13:47:57] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.96 | 등락: -3.89 (-0.33%)
+[2026-04-22 13:47:57] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:47:57] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:47:57] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:47:57] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:47:57] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:47:58] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:47:58] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:47:58] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:02] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:02] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.46 | 등락: -2.01 (-0.03%)
+[2026-04-22 13:48:02] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.96 | 등락: -3.89 (-0.33%)
+[2026-04-22 13:48:02] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:02] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:02] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:02] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:02] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 662000.00 | 등락: 17000.00 (2.64%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:48:03] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:48:03] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:03] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:07] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:07] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6387.13 | 등락: -1.34 (-0.02%)
+[2026-04-22 13:48:07] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.96 | 등락: -3.89 (-0.33%)
+[2026-04-22 13:48:07] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:07] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:07] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:07] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:07] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:48:08] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:48:08] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:08] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:12] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6387.13 | 등락: -1.34 (-0.02%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.88 | 등락: -3.97 (-0.34%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:13] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:13] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:13] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:48:13] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:48:13] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:13] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:17] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:17] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.11 | 등락: -2.36 (-0.04%)
+[2026-04-22 13:48:17] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.88 | 등락: -3.97 (-0.34%)
+[2026-04-22 13:48:17] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:17] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:17] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:17] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:17] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:48:18] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:48:18] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:18] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:22] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:22] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.11 | 등락: -2.36 (-0.04%)
+[2026-04-22 13:48:22] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.88 | 등락: -3.97 (-0.34%)
+[2026-04-22 13:48:22] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:22] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:22] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:22] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:22] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:48:23] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:48:23] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:27] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:27] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.60 | 등락: -1.87 (-0.03%)
+[2026-04-22 13:48:27] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.78 | 등락: -4.07 (-0.35%)
+[2026-04-22 13:48:27] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:27] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:27] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:27] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:27] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:48:28] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:48:28] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:28] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:32] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:32] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.60 | 등락: -1.87 (-0.03%)
+[2026-04-22 13:48:32] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.78 | 등락: -4.07 (-0.35%)
+[2026-04-22 13:48:32] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:32] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:32] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:32] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:32] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1216000.00 | 등락: -8000.00 (-0.65%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:48:33] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:48:33] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:33] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:37] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:37] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.60 | 등락: -1.87 (-0.03%)
+[2026-04-22 13:48:37] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.78 | 등락: -4.07 (-0.35%)
+[2026-04-22 13:48:37] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:37] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:37] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:37] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:37] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:48:38] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:48:38] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:38] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:42] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:42] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.95 | 등락: -2.52 (-0.04%)
+[2026-04-22 13:48:42] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.74 | 등락: -4.11 (-0.35%)
+[2026-04-22 13:48:42] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:42] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:42] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:42] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:42] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215500.00 | 등락: -8500.00 (-0.69%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:48:43] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:48:43] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:43] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:47] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:47] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.95 | 등락: -2.52 (-0.04%)
+[2026-04-22 13:48:47] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.80 | 등락: -4.05 (-0.34%)
+[2026-04-22 13:48:47] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:47] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:47] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:47] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:47] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:48:48] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:48:48] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:48] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:52] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:52] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.95 | 등락: -2.52 (-0.04%)
+[2026-04-22 13:48:52] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.80 | 등락: -4.05 (-0.34%)
+[2026-04-22 13:48:52] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:52] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:52] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:52] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:52] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:48:53] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:48:53] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:53] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:57] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:48:57] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.11 | 등락: -2.36 (-0.04%)
+[2026-04-22 13:48:57] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.80 | 등락: -4.05 (-0.34%)
+[2026-04-22 13:48:57] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:48:57] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:48:57] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:48:57] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:48:57] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214250.00 | 등락: 250.00 (0.12%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:48:58] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:48:58] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:48:58] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:02] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:02] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.01 | 등락: -3.46 (-0.05%)
+[2026-04-22 13:49:02] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.72 | 등락: -4.13 (-0.35%)
+[2026-04-22 13:49:02] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:02] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:02] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:02] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:02] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214250.00 | 등락: 250.00 (0.12%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299750.00 | 등락: -4250.00 (-1.40%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:49:03] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:49:03] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:03] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:07] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:07] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.01 | 등락: -3.46 (-0.05%)
+[2026-04-22 13:49:07] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.89 | 등락: -3.96 (-0.34%)
+[2026-04-22 13:49:07] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:07] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:07] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:07] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:07] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214250.00 | 등락: 250.00 (0.12%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:49:08] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:49:08] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:08] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:13] [INFO] [JigeumMain] =============================================
+[2026-04-22 13:49:13] [INFO] [JigeumMain]   지금 (JIGEUM) 서버 시작
+[2026-04-22 13:49:13] [INFO] [JigeumMain] =============================================
+[2026-04-22 13:49:13] [INFO] [JigeumMain] [1/3] 설정 로딩...
+[2026-04-22 13:49:13] [INFO] [Config] 설정 로딩 완료: C:/workspace/jigeum/bin/jigeum.properties
+[2026-04-22 13:49:13] [INFO] [JigeumMain] [1/3] 설정 로딩 완료
+[2026-04-22 13:49:13] [INFO] [JigeumMain] [2/3] 스케줄러 시작...
+[2026-04-22 13:49:13] [INFO] [StockScheduler] 시세 수집 스케줄러 시작 - 5초 간격
+[2026-04-22 13:49:13] [INFO] [JigeumMain] [2/3] 스케줄러 시작 완료
+[2026-04-22 13:49:13] [INFO] [JigeumMain] [3/3] Netty 서버 시작...
+[2026-04-22 13:49:13] [INFO] [ThemeAnalyzer] Groq 테마 분류 요청 시작
+[2026-04-22 13:49:13] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.3-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"오늘 한국 주식시장과 미국 주식시장에서 가장 주목받고 있는 투자 테마 5개를 선정해줘.\n최근 뉴스, 정책, 글로벌 이슈를 반영해서 현재 시장에서 실제로 자금이 몰리는 섹터 기준으로.\n\n반드시 아래 형식으로만 답해줘. 설명 없이 쉼표로 구분된 5개 단어만:\nAI반도체,방산,2차전지,바이오,로봇"}]}
+[2026-04-22 13:49:13] [INFO] [NettyServer] =============================================
+[2026-04-22 13:49:13] [INFO] [NettyServer]   지금 서버 구동 완료 → http://localhost:8080
+[2026-04-22 13:49:13] [INFO] [NettyServer] =============================================
+[2026-04-22 13:49:13] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=KhL675dbeXeweK0C2vziNmMTGcxh3P4ay6Ue__ZjjMY-1776833357.1103768-1.0.1.1-2mJopiAoqXcrwnUzI.uzUZaTgX4DENfSm.DZpymLEiIA5o9nZjtKBJvUg9Ttg0i5dzD6rwzaWoYissumwRfrzOjrTtXlKl_3nrISRyd6wRyhulMcqG_qWU8eEbExSEcX; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:19:17 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:19:17 GMT
+[2026-04-22 13:49:13] [DEBUG] [GroqClient] Groq response: AI반도체, 방산, 2차전지, 바이오, 로봇
+[2026-04-22 13:49:13] [INFO] [ThemeAnalyzer] 테마 업데이트 완료: [AI반도체, 방산, 2차전지, 바이오, 로봇]
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.57 | 등락: -2.90 (-0.05%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.89 | 등락: -3.96 (-0.34%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:14] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:14] [DEBUG] [StockDataStore] 캐시 저장 완료: 4개 종목
+[2026-04-22 13:49:14] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:49:14] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:49:14] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:14] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:15] [INFO] [RouterHandler] [GET] /api/insight/term?term=PER&value=8&avg=15
+[2026-04-22 13:49:15] [INFO] [InsightGenerator] 용어 해석 요청: PER = 8.0
+[2026-04-22 13:49:15] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.3-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"주식 용어를 주식을 전혀 모르는 사람도 이해할 수 있게 설명해주세요.\n\n용어: PER\n현재 값: 8.00\n업종 평균: 15\n\n이 수치가 무엇을 의미하는지, 현재 값이 좋은 건지 나쁜 건지 일상적인 비유를 들어 2~3문장으로 설명해주세요. 한국어로 답변."}]}
+[2026-04-22 13:49:15] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=Rq1bsSxJeLkFUKCuu337TBdQrOn8lyNpWoIa7CDI7Ho-1776833358.7186837-1.0.1.1-cl1FEjKqvCgUiLPmEBN0NatmPjXytKvMTs7laHXLb3C7UgNFPWv5JTgcVP6sMDF4lpERcVjKO.2kxYGSG0BMw9ZQwtP00WiWVV66BavEWYmoiPi7kT.PfgzAsdpTPqne; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:19:19 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:19:19 GMT
+[2026-04-22 13:49:15] [DEBUG] [GroqClient] Groq response: PER는 주식의 가격을 그 주식의 이익으로 나눈 값을 의미합니다. 현재 PER가 8.00이고 업종 평균이 15라면, 현재 주식의 가격이 업종 평균보다 낮은 것으로 볼 수 있습니다. 이를 일상적인 비유로 설명하자면, 같은 品質의 과일을 사는 것인데, 다른 사람들은 15만원입니다는 과일을 15만원에 사는데, 당신은 8만원에 샀다고 생각하면 됩니다. 이는 현재 주식의 가격이 저렴하다는 것을 의미합니다.
+[2026-04-22 13:49:15] [INFO] [RouterHandler] [GET] /api/insight/term?term=PER&value=8&avg=15
+[2026-04-22 13:49:15] [INFO] [InsightGenerator] 용어 해석 요청: PER = 8.0
+[2026-04-22 13:49:15] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.3-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"주식 용어를 주식을 전혀 모르는 사람도 이해할 수 있게 설명해주세요.\n\n용어: PER\n현재 값: 8.00\n업종 평균: 15\n\n이 수치가 무엇을 의미하는지, 현재 값이 좋은 건지 나쁜 건지 일상적인 비유를 들어 2~3문장으로 설명해주세요. 한국어로 답변."}]}
+[2026-04-22 13:49:16] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=LqAIhIyLE2gegIm4kZweP452F.J5t7bV6dGRf1odNrs-1776833359.5199506-1.0.1.1-KOINhIYAyHpE2g8iFb.Oop4GbPv55Dr9ZvElYKchIchg55JhzEuW4nUQmNts6L5fzlWcCfXUzhofjqjEFW2OiKZQgNPoBLvWPTMkRY2PZWpW2WpuVsXX4VxGloFZMjMU; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:19:20 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:19:20 GMT
+[2026-04-22 13:49:16] [DEBUG] [GroqClient] Groq response: PER는 주식의 가격을 그 주식의 회사 이익으로 나눈 비율을 말합니다. 현재 PER가 8.00이고 업종 평균이 15라는 것은, 같은 업종의 다른 회사들에 비해 이 회사의 주식 가격이 상대적으로 낮다는 것을 의미합니다. 이는 마트에서 같은 品質의 과일을 다른 가게에서 8천원에 파는 것과, 다른 가게에서 15천원에 파는 것과 비슷한데, 현재 주식 가격이 저렴하다는 것을 뜻하므로, 투자자 입장에서는 좋은 기회일 수 있습니다.
+[2026-04-22 13:49:16] [ERROR] [RouterHandler] RouterHandler 오류: refCnt: 0, decrement: 1
+[2026-04-22 13:49:16] [INFO] [RouterHandler] [GET] /favicon.ico
+[2026-04-22 13:49:16] [INFO] [RouterHandler] [GET] /favicon.ico
+[2026-04-22 13:49:16] [ERROR] [RouterHandler] RouterHandler 오류: refCnt: 0, decrement: 1
+[2026-04-22 13:49:18] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.57 | 등락: -2.90 (-0.05%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.78 | 등락: -4.07 (-0.35%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:18] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:18] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:18] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392000.00 | 등락: 2500.00 (0.64%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:49:18] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:49:18] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:18] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:23] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6386.04 | 등락: -2.43 (-0.04%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.78 | 등락: -4.07 (-0.35%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:23] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:23] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:49:23] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:49:23] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:28] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:28] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6383.62 | 등락: -4.85 (-0.08%)
+[2026-04-22 13:49:28] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.60 | 등락: -4.25 (-0.36%)
+[2026-04-22 13:49:28] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:28] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:28] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:28] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:28] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97900.00 | 등락: -1900.00 (-1.90%)
+[2026-04-22 13:49:29] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:49:29] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:29] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:33] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6383.62 | 등락: -4.85 (-0.08%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.60 | 등락: -4.25 (-0.36%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:33] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:33] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:33] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214500.00 | 등락: 500.00 (0.23%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:49:33] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:49:33] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:33] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:38] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6383.62 | 등락: -4.85 (-0.08%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.60 | 등락: -4.25 (-0.36%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:38] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:38] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:38] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:49:38] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:49:38] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:38] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:40] [INFO] [RouterHandler] [GET] /api/insight/economic
+[2026-04-22 13:49:40] [INFO] [InsightGenerator] 경제 국면 분석 요청
+[2026-04-22 13:49:40] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.3-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"현재 경제 지표를 분석해서 투자 관점의 경제 국면을 판단해주세요.\n\n미국 기준금리: 4.25%\n원달러 환율: 1380원\nVIX 공포지수: 18.50\nWTI 유가: $72.00\n금 가격: $3300.00\n\n현재 어떤 경제 국면인지 (금리인상기/금리인하기/경기침체/경기회복 등), 어떤 섹터가 유리한지 3~4문장으로 설명해주세요. 한국어로 답변."}]}
+[2026-04-22 13:49:41] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=qn2G6AgSiWOFuMpv5wZyjbBy9bfH_GzQDc1J.qEfeBQ-1776833383.7616508-1.0.1.1-e0bMRlglbrbHk2BUObno8B4LTmTIxji.QfmowZPIe5gz4aULmtDqb7AR6JlSFkl8U2yHTNXofAJ6oxwE496vU2qTQakgdaOM9I1yE9TNZ6OGDXmNyE6j5LrTHJAOwPwM; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:19:44 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:19:44 GMT
+[2026-04-22 13:49:41] [DEBUG] [GroqClient] Groq response: 현재 경제 지표를 분석한 결과, 미국 기준금리 4.25%는 상대적으로 높은 수준이며, VIX 공포지수 18.50은 비교적 안정적인 수준입니다. 이는 금리인상기라고 볼 수 있으며, 특히 금리인상이 계속 이어질 경우 경기침체를 우려할 수 있습니다. 이러한 상황에서는 금과 같은 안전자산이나 공익 서비스, 의료 등 방향성 있는 섹터가 유리할 수 있습니다. 또한, 에너지 가격이 안정적인 상황이기 때문에 에너지 섹터도 어느 정도 안정적인 성과를 기대할 수 있습니다.
+[2026-04-22 13:49:41] [INFO] [RouterHandler] [GET] /api/insight/economic
+[2026-04-22 13:49:41] [INFO] [InsightGenerator] 경제 국면 분석 요청
+[2026-04-22 13:49:41] [DEBUG] [GroqClient] Groq request: {"model":"llama-3.3-70b-versatile","temperature":0.7,"max_tokens":1024,"messages":[{"role":"user","content":"현재 경제 지표를 분석해서 투자 관점의 경제 국면을 판단해주세요.\n\n미국 기준금리: 4.25%\n원달러 환율: 1380원\nVIX 공포지수: 18.50\nWTI 유가: $72.00\n금 가격: $3300.00\n\n현재 어떤 경제 국면인지 (금리인상기/금리인하기/경기침체/경기회복 등), 어떤 섹터가 유리한지 3~4문장으로 설명해주세요. 한국어로 답변."}]}
+[2026-04-22 13:49:42] [WARN] [ResponseProcessCookies] Invalid cookie header: "set-cookie: __cf_bm=9MBmW87tnAIFmvO7154ilX6B40iLzXJ8GRY2S_okqT0-1776833384.7075326-1.0.1.1-ce2oycL263a4rlkwJH2MC2oHgv4fu_k0tVQocQb93E3J28s1KFX4kMJZwZJmy2JdlHMFGa.pBqSZqM7GBFv6sOXj2Evr7znT1r59tUD8fITofFsbqPMY9Zdemglf4Tua; HttpOnly; Secure; Path=/; Domain=groq.com; Expires=Wed, 22 Apr 2026 05:19:45 GMT". Invalid 'expires' attribute: Wed, 22 Apr 2026 05:19:45 GMT
+[2026-04-22 13:49:42] [DEBUG] [GroqClient] Groq response: 현재의 경제 지표를 분석하면, 미국 기준금리가 4.25%로 높은 수준을 유지하고 있음을 알 수 있습니다. 이에 따라 경기침체 국면에 접어든 것으로 판단됩니다. 이러한 국면에서 금과 같은 안전자산이 유리하며, 에너지 섹터도 높은 유가로 인해 유리할 수 있습니다. 또한, 하락장에서 상대적으로 안정적인 실적을 보이는 공공事業 섹터나 의료 섹터도 투자 관점에서 유리할 수 있습니다.
+[2026-04-22 13:49:42] [ERROR] [RouterHandler] RouterHandler 오류: refCnt: 0, decrement: 1
+[2026-04-22 13:49:42] [INFO] [RouterHandler] [GET] /favicon.ico
+[2026-04-22 13:49:42] [INFO] [RouterHandler] [GET] /favicon.ico
+[2026-04-22 13:49:42] [ERROR] [RouterHandler] RouterHandler 오류: refCnt: 0, decrement: 1
+[2026-04-22 13:49:43] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.82 | 등락: -3.65 (-0.06%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.64 | 등락: -4.21 (-0.36%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:43] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:43] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:43] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663500.00 | 등락: 18500.00 (2.87%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:49:43] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:49:43] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:43] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:48] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.85 | 등락: -3.62 (-0.06%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.64 | 등락: -4.21 (-0.36%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:48] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:48] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:48] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:49:48] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:49:48] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:48] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:53] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.85 | 등락: -3.62 (-0.06%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.56 | 등락: -4.29 (-0.37%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:53] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:53] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:53] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:49:53] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:49:53] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:53] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:58] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6383.65 | 등락: -4.82 (-0.08%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.47 | 등락: -4.38 (-0.37%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:49:58] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:49:58] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:49:58] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299750.00 | 등락: -4250.00 (-1.40%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:49:58] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:49:58] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:49:58] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:03] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6384.85 | 등락: -3.62 (-0.06%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.47 | 등락: -4.38 (-0.37%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:50:03] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:50:03] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:03] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214500.00 | 등락: -9500.00 (-0.78%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299750.00 | 등락: -4250.00 (-1.40%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:50:03] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:50:03] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:50:03] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:08] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6383.65 | 등락: -4.82 (-0.08%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.37 | 등락: -4.48 (-0.38%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:50:08] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:50:08] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:08] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214500.00 | 등락: -9500.00 (-0.78%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 300000.00 | 등락: -4000.00 (-1.32%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155600.00 | 등락: -4800.00 (-2.99%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:50:08] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:50:08] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:50:08] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:13] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.42 | 등락: -3.05 (-0.05%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.47 | 등락: -4.38 (-0.37%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:50:13] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:50:13] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:13] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214000.00 | 등락: -10000.00 (-0.82%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48300.00 | 등락: -650.00 (-1.33%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 392500.00 | 등락: 3000.00 (0.77%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:50:13] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454250.00 | 등락: 7250.00 (1.62%)
+[2026-04-22 13:50:13] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:50:13] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:18] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:50:18] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6385.42 | 등락: -3.05 (-0.05%)
+[2026-04-22 13:50:18] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.56 | 등락: -4.29 (-0.37%)
+[2026-04-22 13:50:18] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:50:18] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:50:18] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:50:18] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:18] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217250.00 | 등락: -1750.00 (-0.80%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 664000.00 | 등락: 19000.00 (2.95%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:50:19] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454500.00 | 등락: 7500.00 (1.68%)
+[2026-04-22 13:50:19] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:50:19] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:23] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6383.51 | 등락: -4.96 (-0.08%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.56 | 등락: -4.29 (-0.37%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:50:23] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:50:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:23] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1215000.00 | 등락: -9000.00 (-0.74%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155500.00 | 등락: -4900.00 (-3.05%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97700.00 | 등락: -2100.00 (-2.10%)
+[2026-04-22 13:50:23] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:50:23] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:50:23] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:28] [DEBUG] [ThemeAnalyzer] 테마 이미 오늘 업데이트됨, 스킵
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [^KS11] KOSPI Composite Index | 현재가: 6383.60 | 등락: -4.87 (-0.08%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [^KQ11] Kosdaq Composite Index | 현재가: 1170.49 | 등락: -4.36 (-0.37%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [^GSPC] S&P 500 | 현재가: 7064.01 | 등락: -45.13 (-0.63%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [^IXIC] NASDAQ Composite | 현재가: 24259.97 | 등락: -144.43 (-0.59%)
+[2026-04-22 13:50:28] [INFO] [YahooFinanceClient] 수집 완료: 4개 종목
+[2026-04-22 13:50:28] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목
+[2026-04-22 13:50:28] [DEBUG] [StockScheduler] [국장] 시세 수집 중...
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [005930.KS] SamsungElec | 현재가: 217000.00 | 등락: -2000.00 (-0.91%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [000660.KS] SK hynix | 현재가: 1214500.00 | 등락: -9500.00 (-0.78%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [035420.KS] NAVER | 현재가: 214000.00 | 등락: 0.00 (0.00%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [035720.KS] Kakao | 현재가: 48250.00 | 등락: -700.00 (-1.43%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [051910.KS] LGCHEM | 현재가: 393000.00 | 등락: 3500.00 (0.90%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [006400.KS] SAMSUNG SDI CO.,LTD. | 현재가: 663000.00 | 등락: 18000.00 (2.79%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [028260.KS] SAMSUNG C&T | 현재가: 299500.00 | 등락: -4500.00 (-1.48%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [105560.KS] KBFinancialGroup | 현재가: 155550.00 | 등락: -4850.00 (-3.02%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [055550.KS] ShinhanGroup | 현재가: 97800.00 | 등락: -2000.00 (-2.00%)
+[2026-04-22 13:50:28] [DEBUG] [YahooFinanceClient] [012330.KS] Mobis | 현재가: 454000.00 | 등락: 7000.00 (1.57%)
+[2026-04-22 13:50:28] [INFO] [YahooFinanceClient] 수집 완료: 10개 종목
+[2026-04-22 13:50:28] [DEBUG] [StockDataStore] 캐시 저장 완료: 14개 종목

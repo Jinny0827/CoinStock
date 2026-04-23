@@ -1,0 +1,11 @@
+# 설정 파일 및 API 키 숨기기
+/bin/jigeum.properties
+
+# IntelliJ 관련 파일
+.idea/
+*.iml
+out/
+
+# 빌드 결과물
+*.class
+*.jar
