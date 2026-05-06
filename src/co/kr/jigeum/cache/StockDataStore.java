@@ -32,6 +32,13 @@ public class StockDataStore {
      */
     public void save(List<StockQuote> quotes) {
         for (StockQuote quote : quotes) {
+            // 야후 갱신 시 기존 재무 지표(eps/per/pbr) 보존 (5초마다 0으로 초기화 방지)
+            StockQuote existing = quoteMap.get(quote.getSymbol());
+            if (existing != null && quote.getEps() == 0.0) {
+                quote.setEps(existing.getEps());
+                quote.setPer(existing.getPer());
+                quote.setPbr(existing.getPbr());
+            }
             quoteMap.put(quote.getSymbol(), quote);
         }
 

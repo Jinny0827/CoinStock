@@ -116,6 +116,7 @@ public class YahooFinanceClient {
                     // [중요] DART/SEC에서 주식수를 못 가져올 경우 시가총액을 활용하기 위해 저장
                     quote.setMarketCap(meta.path("marketCap").asLong());
 
+                    quote.setAvgVolume10Day(meta.path("averageDailyVolume10Day").asLong());
                     quote.setHigh52Week(meta.path("fiftyTwoWeekHigh").asDouble());
                     quote.setLow52Week(meta.path("fiftyTwoWeekLow").asDouble());
                     quote.setMarket(meta.path("exchangeName").asText());

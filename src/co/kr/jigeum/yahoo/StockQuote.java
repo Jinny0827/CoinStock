@@ -13,6 +13,7 @@ public class StockQuote {
     private double low52Week;     // 52주 최저가
     private String market;        // 시장 (us_market, kr_market)
 
+    private long   avgVolume10Day; // 10일 평균 거래량
     private double eps;
     private double per;
     private double pbr;
@@ -46,6 +47,9 @@ public class StockQuote {
 
     public String getMarket()                  { return market; }
     public void   setMarket(String v)          { this.market = v; }
+
+    public long   getAvgVolume10Day()          { return avgVolume10Day; }
+    public void   setAvgVolume10Day(long v)    { this.avgVolume10Day = v; }
 
     public double getEps() { return eps; }
     public void setEps(double eps) { this.eps = eps; }

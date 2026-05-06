@@ -1,9 +1,12 @@
 package co.kr.jigeum.handler;
 
 import co.kr.jigeum.cache.FinancialStore;
+import co.kr.jigeum.cache.ForceStore;
 import co.kr.jigeum.cache.StockDataStore;
 import co.kr.jigeum.cache.ThemeStore;
 import co.kr.jigeum.dart.model.FinancialData;
+import co.kr.jigeum.fred.FredClient;
+import co.kr.jigeum.fred.FredStore;
 import co.kr.jigeum.groq.InsightGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.netty.buffer.Unpooled;
@@ -109,6 +112,17 @@ public class RouterHandler extends SimpleChannelInboundHandler<FullHttpRequest> 
             return;
         }
 
+        // 세력 감지
+        if (path.equals("/api/force")) {
+            sendJson(ctx, HttpResponseStatus.OK, Map.of(
+                    "code", "0000",
+                    "data", ForceStore.getInstance().getAll(),
+                    "total", ForceStore.getInstance().getAll().size(),
+                    "updatedAt", ForceStore.getInstance().getUpdatedAt()
+            ));
+            return;
+        }
+
 
         // 404
         sendJson(ctx, HttpResponseStatus.NOT_FOUND, Map.of(
@@ -151,22 +165,21 @@ public class RouterHandler extends SimpleChannelInboundHandler<FullHttpRequest> 
 
     // 환율, vix, wti유가, 금값 등 FRED 적용 후 진행 예정
     private void handleEconomicInsight(ChannelHandlerContext ctx) throws Exception {
-        double interestRate = 4.25;
-        double usdKrw = 1380.0;
-        double vix = 18.5;
-        double wtiOil = 72.0;
-        double gold = 3300.0;
+        FredStore fred = FredStore.getInstance();
 
-        String insight = new InsightGenerator().analyzeEconomicPhase(interestRate, usdKrw, vix, wtiOil, gold);
+        String insight = new InsightGenerator().analyzeEconomicPhase(
+                fred.getInterestRate(), 1380.0,
+                fred.getVix(), fred.getWtiOil(), fred.getGold()
+        );
 
         sendJson(ctx, HttpResponseStatus.OK, Map.of(
-                "interestRate", interestRate,
-                "usdKrw", usdKrw,
-                "vix", vix,
-                "wtiOil", wtiOil,
-                "gold", gold,
-                "insight", insight,
-                "code", "0000"
+                "interestRate", fred.getInterestRate(),
+                "vix",          fred.getVix(),
+                "wtiOil",       fred.getWtiOil(),
+                "gold",         fred.getGold(),
+                "insight",      insight,
+                "updatedAt",    fred.getUpdatedAt(),
+                "code",         "0000"
         ));
     }
 

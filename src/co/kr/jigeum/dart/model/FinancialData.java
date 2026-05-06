@@ -1,5 +1,6 @@
 package co.kr.jigeum.dart.model;
 
+import co.kr.jigeum.yahoo.StockQuote;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -19,6 +20,9 @@ public class FinancialData {
     private long prevRevenue;        // 전년 매출액 (성장률 계산용)
     private long shares;             // 발행주식수
 
+    // DART에서 직접 가져온 기본주당이익 (가중평균주식수 기반, Naver/Toss 동일 기준)
+    private double dartEps;
+
     // 계산된 지표
     @JsonProperty("eps")
     private double eps;
@@ -35,25 +39,24 @@ public class FinancialData {
 
 
     // 계산 메서드
-    public void calculate(double currentPrice) {
-        // 1. 발행주식수 체크 (0이면 계산 불가)
-        if (this.shares <= 0) {
-            return;
+    public void calculate(StockQuote quote) {
+        if (quote == null) return;
+
+        // DART에서 받은 주당이익이 있다면 최우선 적용 (네이버와 동일 기준)
+        if (this.dartEps > 0) {
+            this.eps = this.dartEps;
+        } else if (this.netIncome != 0 && this.shares > 0) {
+            // 직접 계산 (Fallback)
+            this.eps = (double) this.netIncome / this.shares;
         }
 
-        // 2. EPS 계산 (Net Income은 이미 TTM으로 환산되어 들어온다고 가정)
-        this.eps = (double) netIncome / shares;
+        double currentPrice = quote.getPrice();
 
-        // 3. BPS(주당순자산) 및 PBR 계산
-        double bps = (double) totalEquity / shares;
-
-        // 4. PER/PBR 계산 시 0 나누기 및 음수 이익 처리
-        if (this.eps > 0) {
+        if (this.eps != 0) {
             this.per = currentPrice / this.eps;
-        } else {
-            this.per = 0; // 적자 기업은 PER 0 또는 N/A 처리
         }
 
+        double bps = (this.shares > 0) ? (double) totalEquity / shares : 0;
         if (bps > 0) {
             this.pbr = currentPrice / bps;
         } else {
@@ -110,6 +113,9 @@ public class FinancialData {
 
     public long getShares() { return shares; }
     public void setShares(long shares) { this.shares = shares; }
+
+    public double getDartEps() { return dartEps; }
+    public void setDartEps(double dartEps) { this.dartEps = dartEps; }
 
     public double getEps() { return eps; }
     public double getPer() { return per; }

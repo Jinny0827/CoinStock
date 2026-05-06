@@ -36,9 +36,9 @@ public class DartClient {
         String corpCode = DartCorpCodeLoader.getCorpCode(stockCode);
         if (corpCode == null) return null;
 
-        // 탐색 전략 변경: 추정치(*4)보다는 팩트(사업보고서)를 먼저 찾습니다.
+        // 탐색 전략: 연간 사업보고서 우선 → 분기 순 (revenueGrowth 왜곡 방지)
         // 사업보고서(11011) -> 3분기(11013) -> 반기(11012) -> 1분기(11014) 순서
-        String[] reportCodes = {"11014", "11013", "11012", "11011"};
+        String[] reportCodes = {"11011", "11013", "11012", "11014"};
 
         FinancialData data = null;
         int currentYear = LocalDate.now().getYear();
@@ -85,19 +85,29 @@ public class DartClient {
 
     private FinancialData fetchByYear(String symbol, String corpCode, int year, String reprtCode, boolean applyCorrection) {
         try {
-            String url = BASE_URL + "/fnlttSinglAcnt.json"
+            // fnlttSinglAcntAll: 전체 재무제표 (지배주주 귀속 순이익, 기본주당이익 포함)
+            // fnlttSinglAcnt(주요계정)는 총 당기순이익만 있어 지배주주 구분 불가
+            String url = BASE_URL + "/fnlttSinglAcntAll.json"
                     + "?crtfc_key=" + apiKey
                     + "&corp_code=" + corpCode
                     + "&bsns_year=" + year
-                    + "&reprt_code=" + reprtCode;
+                    + "&reprt_code=" + reprtCode
+                    + "&fs_div=CFS";
 
             try (CloseableHttpClient client = HttpClients.createDefault()) {
                 HttpGet get = new HttpGet(url);
                 try (CloseableHttpResponse response = client.execute(get)) {
                     String body = EntityUtils.toString(response.getEntity(), "UTF-8");
+                    logger.debug("[DART-ALL-BODY] symbol={} year={} rCode={} body={}",
+                            symbol, year, reprtCode, body.substring(0, Math.min(500, body.length())));
                     FinancialData data = parse(symbol, corpCode, body, year, reprtCode);
 
                     if (data != null && applyCorrection) {
+                        // 분기 보고서의 기본주당이익은 분기 단일값 → TTM 환산 불가
+                        // 사업보고서(11011)만 dartEps 사용, 나머지는 TTM netIncome/shares로 계산
+                        if (!"11011".equals(reprtCode)) {
+                            data.setDartEps(0);
+                        }
                         applyTtmCorrection(data, reprtCode);
                     }
                     return data;
@@ -131,57 +141,80 @@ public class DartClient {
 
             for (JsonNode item : list) {
                 String account = item.path("account_nm").asText().replace(" ", "");
-                String fs      = item.path("fs_div").asText();
-                String amountStr = item.path("thstrm_amount").asText().replace(",", "");
+                String fs    = item.path("fs_div").asText();
+                String sj    = item.path("sj_div").asText();   // BS / CIS / CF / SCE
+                long value   = parseLong(item.path("thstrm_amount").asText().replace(",", ""));
+                long prev    = parseLong(item.path("frmtrm_amount").asText().replace(",", ""));
 
+                // fnlttSinglAcntAll은 응답 항목에 fs_div 필드 없음(fs="") → OFS만 제외
+                if ("OFS".equals(fs)) continue;
 
-                if (!"CFS".equals(fs)) continue;
+                // IS 또는 CIS 여부 (삼성전자 등 두 보고서 방식 기업은 IS 사용)
+                boolean isIncome = "IS".equals(sj) || "CIS".equals(sj);
 
-                long value = parseLong(item.path("thstrm_amount").asText().replace(",", ""));
-                long prev  = parseLong(item.path("frmtrm_amount").asText().replace(",", ""));
+                // [IS/CIS] 기본주당이익 - 가중평균주식수 기반, Naver/Toss와 동일 기준
+                // 보통주 우선: 보통주기본주당순이익 > 기본주당순이익(단일) > 우선주(무시)
+                if (isIncome && (account.contains("기본주당순이익") || account.contains("기본주당이익"))) {
+                    double epsVal = parseDouble(item.path("thstrm_amount").asText().replace(",", ""));
+                    if (epsVal != 0) {
+                        boolean isPreferred = account.contains("우선주");
+                        boolean alreadyHasCommon = account.contains("보통주") || !account.contains("우선주");
+                        // 우선주는 보통주 값이 없을 때만 임시 저장, 보통주는 항상 덮어씀
+                        if (!isPreferred) {
+                            data.setDartEps(epsVal);
+                            logger.debug("[DART-MATCH] ▶ 보통주기본주당이익: '{}' = {}", account, epsVal);
+                        } else if (data.getDartEps() == 0) {
+                            data.setDartEps(epsVal);
+                            logger.debug("[DART-MATCH] ▶ 우선주기본주당이익(임시): '{}' = {}", account, epsVal);
+                        }
+                    }
+                }
 
-                // 1. 순이익 매핑 (지배주주 우선)
-                if (account.contains("지배기업") && account.contains("소유주") && account.contains("순이익")) {
-                    // 가장 정확한 지배주주 순이익
-                    data.setNetIncome(value);
-                } else if (account.contains("지배주주순이익") || account.contains("지배기업지분순이익")) {
-                    data.setNetIncome(value);
-                } else if (account.equals("당기순이익(손실)") || account.equals("당기순이익")) {
-                    // 지배주주 데이터가 아직 없을 때만 일반 순이익 세팅
+                // [IS/CIS] 당기순이익 - 총 연결 순이익 (dartEps 없을 때 fallback용)
+                else if (isIncome && (account.equals("당기순이익(손실)") || account.equals("당기순이익"))) {
                     if (data.getNetIncome() == 0) {
                         data.setNetIncome(value);
+                        logger.debug("[DART-MATCH] ▶ 당기순이익: '{}' = {}", account, value);
                     }
                 }
 
-                // 2. 자본총계 매핑 (지배주주 우선)
-                else if (account.contains("지배기업") && account.contains("소유주") && account.contains("자본")) {
+                // [BS] 지배주주 자본총계 - BPS/PBR 계산용
+                // 회사마다 계정명 상이: 지배기업의소유주지분 / 지배기업의소유지분
+                else if ("BS".equals(sj) && (account.equals("지배기업의소유주지분") || account.equals("지배기업의소유지분"))) {
                     data.setTotalEquity(value);
-                } else if (account.contains("지배주주자본") || account.contains("지배기업지분자본")) {
+                    logger.debug("[DART-MATCH] ▶ 지배주주자본: '{}' = {}", account, value);
+                }
+                // [BS] 자본총계 폴백
+                else if ("BS".equals(sj) && account.equals("자본총계") && data.getTotalEquity() == 0) {
                     data.setTotalEquity(value);
-                } else if (account.equals("자본총계")) {
-                    if (data.getTotalEquity() == 0) {
-                        data.setTotalEquity(value);
-                    }
+                    logger.debug("[DART-MATCH] ▶ 자본총계(fallback): '{}' = {}", account, value);
                 }
 
-                // 3. 매출 및 기타 지표
-                else if (account.equals("매출액") || account.equals("수익(매출액)") || account.equals("영업수익")) {
+                // [IS/CIS] 매출액
+                else if (isIncome && (account.equals("매출액") || account.equals("수익(매출액)") || account.equals("영업수익"))) {
                     data.setRevenue(value);
                     data.setPrevRevenue(prev);
-                } else if (account.equals("영업이익") || account.equals("영업이익(손실)")) {
+                }
+                // [IS/CIS] 영업이익
+                else if (isIncome && (account.equals("영업이익") || account.equals("영업이익(손실)"))) {
                     data.setOperatingIncome(value);
-                } else if (account.equals("이자수익") && data.getRevenue() == 0) {
-                    // 금융주 대응
+                }
+                // [IS/CIS] 금융주 매출 대응
+                else if (isIncome && account.equals("이자수익") && data.getRevenue() == 0) {
                     data.setRevenue(value);
                     data.setPrevRevenue(prev);
                 }
             }
+
+            logger.debug("[DART-PARSED] symbol={} netIncome={} equity={} revenue={} dartEps={}",
+                    symbol, data.getNetIncome(), data.getTotalEquity(), data.getRevenue(), data.getDartEps());
 
             // 주식수 수집
             data.setShares(fetchSharesFromDart(symbol, corpCode, year, reprtCode));
 
             return data;
         } catch (Exception e) {
+            logger.error("[DART-PARSE-ERROR] symbol={} error={}", symbol, e.getMessage());
             return null;
         }
     }
@@ -249,6 +282,14 @@ public class DartClient {
             return Long.parseLong(value.trim());
         } catch (Exception e) {
             return 0L;
+        }
+    }
+
+    private double parseDouble(String value) {
+        try {
+            return Double.parseDouble(value.trim());
+        } catch (Exception e) {
+            return 0.0;
         }
     }
 
