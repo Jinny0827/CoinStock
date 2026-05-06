@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>WebSocket 테스트</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1a1a1a; color: #00ff00; }
+        #log { white-space: pre-wrap; height: 80vh; overflow-y: auto; border: 1px solid #333; padding: 10px; }
+        #status { margin-bottom: 10px; font-size: 14px; }
+        .connected { color: #00ff00; }
+        .disconnected { color: #ff4444; }
+        .msg { color: #aaffaa; }
+    </style>
+</head>
+<body>
+    <div id="status" class="disconnected">● 연결 안 됨</div>
+    <div id="log"></div>
+
+<script>
+    const log = document.getElementById('log');
+    const status = document.getElementById('status');
+
+    function print(msg, cls = '') {
+        const line = document.createElement('div');
+        line.className = cls;
+        line.textContent = new Date().toLocaleTimeString() + ' ' + msg;
+        log.prepend(line);
+    }
+
+    const ws = new WebSocket('ws://localhost:8090/ws');
+
+    ws.onopen = () => {
+        status.textContent = '● 연결됨';
+        status.className = 'connected';
+        print('[OPEN] WebSocket 연결 성공');
+    };
+
+    ws.onmessage = (e) => {
+        try {
+            const data = JSON.parse(e.data);
+            print('[MSG] type=' + data.type + ' | 종목수=' + (data.data ? data.data.length : 0), 'msg');
+            console.log(data);
+        } catch(err) {
+            print('[MSG RAW] ' + e.data);
+        }
+    };
+
+    ws.onerror = (e) => {
+        print('[ERROR] 연결 오류');
+        console.error(e);
+    };
+
+    ws.onclose = () => {
+        status.textContent = '● 연결 끊김';
+        status.className = 'disconnected';
+        print('[CLOSE] 연결 종료');
+    };
+</script>
+</body>
+</html>
