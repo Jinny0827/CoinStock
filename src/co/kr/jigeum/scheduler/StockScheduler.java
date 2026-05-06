@@ -1,12 +1,17 @@
 package co.kr.jigeum.scheduler;
 
 import co.kr.jigeum.cache.FinancialStore;
+import co.kr.jigeum.cache.ForceStore;
 import co.kr.jigeum.cache.StockDataStore;
+import co.kr.jigeum.detector.ForceDetector;
 import co.kr.jigeum.common.config.Config;
 import co.kr.jigeum.dart.DartClient;
 import co.kr.jigeum.dart.DartCorpCodeLoader;
 import co.kr.jigeum.dart.model.FinancialData;
+import co.kr.jigeum.fred.FredClient;
+import co.kr.jigeum.fred.FredStore;
 import co.kr.jigeum.groq.ThemeAnalyzer;
+import co.kr.jigeum.sec.SecEdgarClient;
 import co.kr.jigeum.yahoo.StockQuote;
 import co.kr.jigeum.yahoo.YahooFinanceClient;
 import org.slf4j.Logger;
@@ -85,6 +90,9 @@ public class StockScheduler {
                     updateFinancialsIfNeeded(US_SYMBOLS, false);
                 }
 
+                // 4. 세력 감지 (국장/미장 모두 열려있을 때 또는 하나라도 열려있으면 실행)
+                ForceStore.getInstance().save(ForceDetector.detect(dataStore.getAll()));
+
             } catch (Exception e) {
                 logger.error("스케줄러 실행 에러: {}", e.getMessage());
             }
@@ -96,42 +104,63 @@ public class StockScheduler {
     /**
      * 국장/미장 통합 재무 데이터 업데이트 로직
      */
-    private static void updateFinancialsIfNeeded(String[] symbols, boolean isKr) {
+    private static void updateFinancialsIfNeeded(String[] symbols, boolean isKr) throws Exception {
         LocalDate today = LocalDate.now();
-//        if (lastFinancialUpdate != null && lastFinancialUpdate.equals(today)) return;
+        if (lastFinancialUpdate != null && lastFinancialUpdate.equals(today)) return;
 
         logger.info("[{}] 재무데이터 수집 시작", isKr ? "국장" : "미장");
 
         FinancialStore financialStore = FinancialStore.getInstance();
         StockDataStore dataStore = StockDataStore.getInstance();
         DartClient dartClient = new DartClient();
+        SecEdgarClient secClient = new SecEdgarClient();
 
         for (String symbol : symbols) {
             try {
                 FinancialData fd = null;
 
-                // [수정 2] DartClient 호출 전, 야후에서 수집된 quote를 먼저 꺼내옴
                 StockQuote quote = dataStore.get(symbol);
 
                 if (isKr) {
-                    // [수정 3] 메서드 시그니처 변경에 따라 quote를 함께 전달
-                    // 이래야 컴파일 에러가 사라지고, 주식수 역산이 가능해집니다.
                     fd = dartClient.fetchFinancial(symbol, quote);
                 } else {
-                    // 미장: SEC EDGAR 또는 외부 API (추후 구현)
-                    logger.debug("미장[{}] 재무 데이터 수집 준비 중...", symbol);
+                    fd = secClient.fetch(symbol, quote);
                 }
 
                 if (fd != null && quote != null) {
                     // 야후 실시간 가격으로 PER, PBR 최종 산출
-                    fd.calculate(quote.getPrice());
+                    fd.calculate(quote);
                     financialStore.save(fd);
+
+                    // StockQuote에도 반영 (market/kr API에서 바로 보이도록)
+                    quote.setEps(fd.getEps());
+                    quote.setPer(fd.getPer());
+                    quote.setPbr(fd.getPbr());
+
                     logger.info("[{}] 최종 지표 계산 완료 - EPS: {}, PER: {}", symbol, fd.getEps(), fd.getPer());
                 }
             } catch (Exception e) {
                 logger.warn("[{}] 재무 데이터 수집 실패: {}", symbol, e.getMessage());
             }
         }
+
+        // 금: FRED LMBA 시리즈 2022년 삭제됨 → 야후 GC=F(금 선물)로 대체
+        List<StockQuote> goldQuotes = new YahooFinanceClient().fetchQuotes(new String[]{"GC=F"});
+        double goldPrice = goldQuotes.isEmpty() ? 0.0 : goldQuotes.get(0).getPrice();
+
+        FredClient fred = new FredClient();
+        FredStore.getInstance().update(
+                fred.fetchLatest("DFEDTARU"),    // 목표금리 상단 (일별)
+                fred.fetchLatest("VIXCLS"),
+                fred.fetchLatest("DCOILWTICO"),  // WTI 유가
+                goldPrice
+        );
+        logger.info("[FRED] 갱신 완료 - 금리={} VIX={} WTI={} 금={}",
+                FredStore.getInstance().getInterestRate(),
+                FredStore.getInstance().getVix(),
+                FredStore.getInstance().getWtiOil(),
+                FredStore.getInstance().getGold());
+
 
         lastFinancialUpdate = today;
     }
