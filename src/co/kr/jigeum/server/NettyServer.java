@@ -3,6 +3,8 @@ package co.kr.jigeum.server;
 import co.kr.jigeum.common.config.Config;
 import co.kr.jigeum.handler.CorsHandler;
 import co.kr.jigeum.handler.RouterHandler;
+import co.kr.jigeum.websocket.WebSocketHandler;
+import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelInitializer;
@@ -48,6 +50,10 @@ public class NettyServer {
                             pipeline.addLast(new HttpObjectAggregator(1024 * 1024));
                             // CORS 처리
                             pipeline.addLast(new CorsHandler());
+                            // WebSocket 업그레이드 (/ws 경로)
+                            pipeline.addLast(new WebSocketServerProtocolHandler("/ws"));
+                            // WebSocket 프레임 처리
+                            pipeline.addLast(new WebSocketHandler());
                             // 라우터 (비즈니스 로직 - 별도 스레드풀)
                             pipeline.addLast(executorGroup, new RouterHandler());
                         }

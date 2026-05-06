@@ -11,6 +11,9 @@ import co.kr.jigeum.dart.model.FinancialData;
 import co.kr.jigeum.fred.FredClient;
 import co.kr.jigeum.fred.FredStore;
 import co.kr.jigeum.groq.ThemeAnalyzer;
+import co.kr.jigeum.websocket.WebSocketSessionStore;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.util.Map;
 import co.kr.jigeum.sec.SecEdgarClient;
 import co.kr.jigeum.yahoo.StockQuote;
 import co.kr.jigeum.yahoo.YahooFinanceClient;
@@ -92,6 +95,22 @@ public class StockScheduler {
 
                 // 4. 세력 감지 (국장/미장 모두 열려있을 때 또는 하나라도 열려있으면 실행)
                 ForceStore.getInstance().save(ForceDetector.detect(dataStore.getAll()));
+
+                // 5. WebSocket 실시간 Push (연결된 클라이언트가 있을 때만)
+                if (WebSocketSessionStore.getInstance().size() > 0) {
+                    try {
+                        ObjectMapper mapper = new ObjectMapper();
+                        String payload = mapper.writeValueAsString(Map.of(
+                                "type", "QUOTE_UPDATE",
+                                "data", dataStore.getAll(),
+                                "updatedAt", System.currentTimeMillis()
+                        ));
+                        WebSocketSessionStore.getInstance().broadcast(payload);
+                        logger.debug("[WS] Push 완료 - {}명에게 전송", WebSocketSessionStore.getInstance().size());
+                    } catch (Exception e) {
+                        logger.warn("[WS] Push 실패: {}", e.getMessage());
+                    }
+                }
 
             } catch (Exception e) {
                 logger.error("스케줄러 실행 에러: {}", e.getMessage());
